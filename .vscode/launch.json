@@ -1,0 +1,93 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "java",
+      "request": "launch",
+      "name": "Client",
+      "presentation": {
+        "group": "Mod Development - neoforgemod",
+        "order": 0
+      },
+      "projectName": "neoforgemod",
+      "mainClass": "net.neoforged.devlaunch.Main",
+      "args": [
+        "@D:\\neoforgemod\\build\\moddev\\clientRunProgramArgs.txt"
+      ],
+      "vmArgs": [
+        "@D:\\neoforgemod\\build\\moddev\\clientRunVmArgs.txt",
+        "-Dfml.modFolders\u003dnetworkjs%%D:\\neoforgemod\\bin\\main"
+      ],
+      "cwd": "${workspaceFolder}\\run",
+      "env": {},
+      "console": "internalConsole",
+      "shortenCommandLine": "none"
+    },
+    {
+      "type": "java",
+      "request": "launch",
+      "name": "Data",
+      "presentation": {
+        "group": "Mod Development - neoforgemod",
+        "order": 1
+      },
+      "projectName": "neoforgemod",
+      "mainClass": "net.neoforged.devlaunch.Main",
+      "args": [
+        "@D:\\neoforgemod\\build\\moddev\\dataRunProgramArgs.txt"
+      ],
+      "vmArgs": [
+        "@D:\\neoforgemod\\build\\moddev\\dataRunVmArgs.txt",
+        "-Dfml.modFolders\u003dnetworkjs%%D:\\neoforgemod\\bin\\main"
+      ],
+      "cwd": "${workspaceFolder}\\run",
+      "env": {},
+      "console": "internalConsole",
+      "shortenCommandLine": "none"
+    },
+    {
+      "type": "java",
+      "request": "launch",
+      "name": "GameTestServer",
+      "presentation": {
+        "group": "Mod Development - neoforgemod",
+        "order": 2
+      },
+      "projectName": "neoforgemod",
+      "mainClass": "net.neoforged.devlaunch.Main",
+      "args": [
+        "@D:\\neoforgemod\\build\\moddev\\gameTestServerRunProgramArgs.txt"
+      ],
+      "vmArgs": [
+        "@D:\\neoforgemod\\build\\moddev\\gameTestServerRunVmArgs.txt",
+        "-Dfml.modFolders\u003dnetworkjs%%D:\\neoforgemod\\bin\\main"
+      ],
+      "cwd": "${workspaceFolder}\\run",
+      "env": {},
+      "console": "internalConsole",
+      "shortenCommandLine": "none"
+    },
+    {
+      "type": "java",
+      "request": "launch",
+      "name": "Server",
+      "presentation": {
+        "group": "Mod Development - neoforgemod",
+        "order": 3
+      },
+      "projectName": "neoforgemod",
+      "mainClass": "net.neoforged.devlaunch.Main",
+      "args": [
+        "@D:\\neoforgemod\\build\\moddev\\serverRunProgramArgs.txt"
+      ],
+      "vmArgs": [
+        "@D:\\neoforgemod\\build\\moddev\\serverRunVmArgs.txt",
+        "-Dfml.modFolders\u003dnetworkjs%%D:\\neoforgemod\\bin\\main"
+      ],
+      "cwd": "${workspaceFolder}\\run",
+      "env": {},
+      "console": "internalConsole",
+      "shortenCommandLine": "none"
+    }
+  ]
+}
