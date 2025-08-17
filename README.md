@@ -186,8 +186,7 @@ As a new Java developer, I'm always looking to improve! Feel free to:
 
 ## Support
 
-- Join our [Discord](your-discord-link) for support and discussion
-- Open an [issue](https://github.com/your-username/NetworkJS/issues) for bugs
+- Open an [issue](https://github.com/SSnowly/NetworkJS/issues) for bugs
 - Check the [KubeJS Wiki](https://kubejs.com/) for general KubeJS help
 
 ---
