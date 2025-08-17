@@ -164,7 +164,7 @@ ServerEvents.loaded(event => {
 ## Building
 
 ```bash
-git clone https://github.com/your-username/NetworkJS.git
+git clone https://github.com/SSnowly/NetworkJS.git
 cd NetworkJS
 ./gradlew build
 ```
