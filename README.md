@@ -13,7 +13,7 @@ A powerful KubeJS addon that enables internet connectivity and Discord integrati
 
 ## Installation
 
-1. Download the latest jar from the [releases page](https://github.com/your-username/NetworkJS/releases)
+1. Download the latest jar from the [releases page](https://github.com/SSnowly/NetworkJS/releases)
 2. Place the jar in your `mods` folder
 3. Make sure you have [KubeJS](https://github.com/KubeJS-Mods/KubeJS) installed
 4. Restart your server
