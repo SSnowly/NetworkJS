@@ -13,7 +13,7 @@ A powerful KubeJS addon that enables internet connectivity and Discord integrati
 
 ## Installation
 
-1. Download the latest jar from the [releases page](https://github.com/your-username/NetworkJS/releases)
+1. Download the latest jar from the [releases page](https://github.com/SSnowly/NetworkJS/releases)
 2. Place the jar in your `mods` folder
 3. Make sure you have [KubeJS](https://github.com/KubeJS-Mods/KubeJS) installed
 4. Restart your server
@@ -164,7 +164,7 @@ ServerEvents.loaded(event => {
 ## Building
 
 ```bash
-git clone https://github.com/your-username/NetworkJS.git
+git clone https://github.com/SSnowly/NetworkJS.git
 cd NetworkJS
 ./gradlew build
 ```
@@ -186,8 +186,7 @@ As a new Java developer, I'm always looking to improve! Feel free to:
 
 ## Support
 
-- Join our [Discord](your-discord-link) for support and discussion
-- Open an [issue](https://github.com/your-username/NetworkJS/issues) for bugs
+- Open an [issue](https://github.com/SSnowly/NetworkJS/issues) for bugs
 - Check the [KubeJS Wiki](https://kubejs.com/) for general KubeJS help
 
 ---
