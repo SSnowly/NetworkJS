@@ -10,7 +10,13 @@ public class NetworkJSPlugin implements KubeJSPlugin {
     
     @Override
     public void registerBindings(BindingRegistry bindings) {
+        NetworkJS.LOGGER.info("Registering NetworkJS bindings...");
+        
         bindings.add("fetch", (FetchFunction) (url, options) -> {
+            if (!NetworkJS.isRegistryEnabled()) {
+                throw new RuntimeException("NetworkJS registry is disabled! Use /networkjs enable to enable fetch functionality.");
+            }
+            
             if (options instanceof Map<?, ?> opts) {
                 @SuppressWarnings("unchecked")
                 Map<String, Object> optMap = (Map<String, Object>) opts;
@@ -25,6 +31,10 @@ public class NetworkJSPlugin implements KubeJSPlugin {
         });
 
         bindings.add("fetchAsync", (FetchFunction) (url, options) -> {
+            if (!NetworkJS.isRegistryEnabled()) {
+                throw new RuntimeException("NetworkJS registry is disabled! Use /networkjs enable to enable fetch functionality.");
+            }
+            
             if (options instanceof Map<?, ?> opts) {
                 @SuppressWarnings("unchecked")
                 Map<String, Object> optMap = (Map<String, Object>) opts;
@@ -43,6 +53,8 @@ public class NetworkJSPlugin implements KubeJSPlugin {
         bindings.add("FetchResponse", FetchBinding.FetchResponse.class);
         bindings.add("DiscordBot", DiscordBinding.class);
         bindings.add("Server", ServerBinding.class);
+        
+        NetworkJS.LOGGER.info("NetworkJS bindings registered successfully");
     }
 
     @FunctionalInterface

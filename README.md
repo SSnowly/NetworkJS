@@ -10,6 +10,7 @@ A powerful KubeJS addon that enables internet connectivity and Discord integrati
 - **Discord Bot Integration** - Send messages, embeds, and listen to Discord events
 - **Server Utilities** - Send colored messages to players and get server info
 - **Easy Integration** - Works seamlessly with KubeJS with both global functions and class access
+- **Safety System** - Registry system prevents accidental network access in singleplayer
 
 ## Installation
 
@@ -17,6 +18,32 @@ A powerful KubeJS addon that enables internet connectivity and Discord integrati
 2. Place the jar in your `mods` folder
 3. Make sure you have [KubeJS](https://github.com/KubeJS-Mods/KubeJS) installed
 4. Restart your server
+
+## Safety & Registry System
+
+NetworkJS includes a safety system to prevent accidental network access:
+
+### Singleplayer Detection
+- When running in singleplayer mode, NetworkJS automatically disables all network features
+- A warning message appears in chat explaining how to enable the registry
+- This prevents accidental API calls or Discord connections in singleplayer
+
+### Registry Commands
+Use these commands to manage the NetworkJS registry (requires OP level 2):
+
+```bash
+/networkjs enable    # Enable the registry and reload KubeJS scripts
+/networkjs disable   # Disable the registry
+/networkjs reload    # Force reload bindings (when registry is enabled)
+/networkjs status    # Check current registry status
+```
+
+### Workflow
+1. **Server starts** → Registry is disabled by default in singleplayer
+2. **Warning appears** → Chat message explains the situation
+3. **Run command** → `/networkjs enable` to enable features
+4. **Scripts reload** → KubeJS server-scripts reload with new bindings
+5. **Features available** → All NetworkJS features are now accessible
 
 ## API Reference
 
@@ -97,14 +124,14 @@ const futureResponse = FetchBinding.fetchAsync("https://api.example.com");
 
 ### Complete API Exports
 
-The following classes and functions are available globally in your KubeJS scripts:
+The following classes and functions are available globally in your KubeJS scripts (when registry is enabled):
 
 | Export | Type | Description |
 |--------|------|-------------|
 | `fetch()` | Function | Make HTTP requests (global function) |
 | `fetchAsync()` | Function | Make async HTTP requests (global function) |
 | `DiscordBot` | Class | Discord bot functionality |
-| `Server` | Class |  server utilities |
+| `Server` | Class | Server utilities |
 | `FetchBinding` | Class | HTTP request utilities (legacy) |
 | `FetchOptions` | Class | HTTP request options |
 | `FetchResponse` | Class | HTTP response object |

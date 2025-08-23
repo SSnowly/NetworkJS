@@ -14,6 +14,14 @@ public class ServerBinding {
      * Supports Minecraft color codes like &a, &c, etc.
      */
     public static void sendRawMessage(String message) {
+        sendSystemMessage(message);
+    }
+    
+    /**
+     * Sends a system message to all players (bypasses registry check)
+     * Used for warnings and system notifications
+     */
+    public static void sendSystemMessage(String message) {
         try {
             MinecraftServer server = ServerLifecycleHooks.getCurrentServer();
             if (server != null) {
@@ -21,16 +29,25 @@ public class ServerBinding {
                 Component textComponent = Component.literal(coloredMessage);
                 
                 List<ServerPlayer> players = server.getPlayerList().getPlayers();
+                NetworkJS.LOGGER.info("Attempting to send system message. Players online: {}", players.size());
+                
+                if (players.isEmpty()) {
+                    // No players online, just return
+                    NetworkJS.LOGGER.info("No players online, message not sent to chat");
+                    return;
+                }
+                
                 for (ServerPlayer player : players) {
+                    NetworkJS.LOGGER.info("Sending message to player: {}", player.getName().getString());
                     player.sendSystemMessage(textComponent);
                 }
                 
-                NetworkJS.LOGGER.info("Raw message sent to {} players: {}", players.size(), message);
+                NetworkJS.LOGGER.info("System message sent to {} players: {}", players.size(), message);
             } else {
-                NetworkJS.LOGGER.warn("Cannot send raw message: Server not available");
+                NetworkJS.LOGGER.warn("Cannot send system message: Server not available");
             }
         } catch (Exception e) {
-            NetworkJS.LOGGER.error("Failed to send raw message: " + e.getMessage(), e);
+            NetworkJS.LOGGER.error("Failed to send system message: " + e.getMessage(), e);
         }
     }
     
@@ -96,11 +113,13 @@ public class ServerBinding {
     
     /**
      * Converts color codes from & to § for Minecraft formatting
+     * Also handles some basic formatting codes
      */
     private static String translateColorCodes(String message) {
         if (message == null) return "";
         
         return message
-            .replaceAll("&", "§");
+            .replaceAll("&([0-9a-fk-or])", "§$1")
+            .replaceAll("&([A-FK-OR])", "§$1"); // Also handle uppercase color codes
     }
 }
